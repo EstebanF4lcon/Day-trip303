@@ -1,128 +1,76 @@
+print("hello welcome to Daytrip Gen 303 2.0!")
 
 
-from random import random
-from re import X
-from tkinter.messagebox import QUESTION
+import random
 
-intro = "Welcome to Daytrip Gen 303"
-print (intro)
+restaurant_list =["Texas Roadhouse", "Red Robins ","Pf Chang","Tacos el Gordo","Cici's pizza"]
+location_list= ["Beach" ,"Mountains" , "Forest" ,"Desert ", "Island","Internatinal"]
+entertainment_list = ["Clubing", "Swiming","Off road","Hunting","Shoping"]
+transportation_list = ["Supercar","Ecofrendly car","Limo","Uber","Bus"]
 
-ja="where is the daytrip headed too?"
-print(ja)
+def choose_random_value(list):
+  chosen_value = random.choice(list)
+  return chosen_value
 
-options = "beach ,mountains , forest ,desert, random "
-print (options) 
-
-
-locations = input ("where are we headed today ?")
-
-if locations == "beach":
-    print("Clearwater,Florida !")
-
-elif locations == "mountains":
-    print("Estes Park, Colorado is my go to! ")
-elif locations == "forest":
-  print("Let's go to Tongass National Forest!")
-elif locations =="desert":
- print ("Bring lots of water because Sahara Desert is hot !")
-elif locations == "random":
-  import random
-  names = ["beach", "mountaions", "desert"]
-  random_index = int(random.random() * len(names))
-  random_name = names[random_index]
-  print(random_name)
-else :
-  print("A random Trip awaits.")
+restaurant = choose_random_value(restaurant_list)
+location = choose_random_value(location_list)
+entertainment = choose_random_value(entertainment_list)
+transportation = choose_random_value(transportation_list)
 
 
-be ="what type of restaurant do you prefer?"
-print(be)
-
-optionss="american cruisine,chinese food, mexican food ,fast food,random"
-print(optionss)
-
-
-food = input ("where are we eating today ?")
-
-if food == "american cruisine":
-    print("Outback Steakhouse. The Bloomin' Onion is famous for a reason! ")
-
-elif food == "chinese food":
-    print("Panda Express is one of my favorites!")
-
-elif food == "mexican food":
-    print("You can never go wrong with street tacos.")
-
-elif food =="fast food":
-    print ("Mcdonals Quick and Easy !")
-elif food == "random":
-  import random
-  names = [" american cruisine" , "chinese food" , "mexican food" ,"fast food "]
-  random_index = int(random.random() * len(names))
-  random_name = names[random_index]
-  print(random_name)
-else :
-   print("a random restrabant awaits")
-
-print("We have to ride in style!")
-ways_of_transportation= "Supercar,Lifted Truck,motorcycle, ecofrendly car, luxury car, random"
-print(ways_of_transportation)
-
-transportation = input ("how are we getting to our location? need transportation .")
-
-if transportation == "supercar":
-    print("Brand new 2020 buggati is ready!")
-
-elif transportation == "lifted truck":
-    print("2020 Ram trx one of the best trucks!")
-elif transportation == "luxury car":
-    print("Rolls Royce. This car is just like a dream coming true !")
-elif transportation == "motorcycle":
-  print("Make sure you wear a helment with your 2022 harley CVO roadglide.")
-elif transportation =="ecofrendly car":
- print ("Spend less time at the pump and more inside the 2022 Honda Civic!")
-elif transportation == "random":
-  import random
-  names = ["Supercar","lifted truck","motorcycle", "ecofrendly car","luxury car"]
-  random_index = int(random.random() * len(names))
-  random_name = names[random_index]
-  print(random_name)
-else :
-  print("a random way of transportation awaits")
-
-print("what are Adventure are we doing today?")
-ways_of_entertainment= "swimming ,nature, sand dunes,hunting,random"
-print(ways_of_entertainment)
-entertainment = input ("What are we doing today?")
-
-if entertainment == "swimming":
-  print("Nothing like going to the beach for a swim!")
-
-elif entertainment == "nature":
-  print("Colorado has the best hikes around the Country!")
-
-elif entertainment == "sand dunes":
-  print("Off Road Advanture in Sand dunes of Arizona!")
+def choose_restaurant():
+  restaurant = choose_random_value(restaurant_list)
+  user_is_happy = False
+  while user_is_happy == False:
+    user_input =input(f"We are eating {restaurant} ! Is this Restaurant okay with you? Please answer 'y or n'")
+    if user_input == "y":
+      print(f"Great selection enjoy your food! {restaurant}!")
+      user_is_happy=True
+    elif user_input == 'n':
+      restaurant = choose_random_value(restaurant_list)
     
-elif entertainment == "hunting":
-  print("Make sure you wear bring hunting wear!")
 
-elif entertainment == "random":
-  import random
-  names = ["swimming ","nature", "sand dunes","hunting"]
-  random_index = int(random.random() * len(names))
-  random_name = names[random_index]
-  print(random_name)
-else :
-  print("a random way of Adventure awaits")
+chosen_restaurant = choose_restaurant()
 
-print( "the location we are going is:" + locations)
+def choose_location():
+  location = choose_random_value(location_list)
+  user_is_happy = False
+  while user_is_happy == False:
+    user_input = input(f"The next trip is at {location} ! Are you sure you want to go there ? Please answer 'y or n'")
+    if user_input == "y":
+      print(f"Enjoy your trip, to the {location}!")
+      user_is_happy=True
+    elif user_input== "n":
+      location= choose_random_value(location_list)
+
+chosen_location = choose_location()
 
 
-print("lunch will be :"+ food)
+def choose_entertainment():
+  entertainment = choose_random_value(entertainment_list)
+  user_is_happy = False
+  while user_is_happy == False:
+    user_input =input(f"Our next advanture will be {entertainment} ! is that fine with you? Please answer 'y or n'")
+    if user_input == "y":
+      print(f"Have fun, {entertainment}!")
+      user_is_happy=True
+    elif user_input== "n":
+      entertainment= choose_random_value(entertainment_list)
 
-print("Transportation in style is:"+ transportation)
+chosen_entertainment = choose_entertainment()
 
-print ("Stressfree advanture by:"+entertainment)
 
-print("Complete thank you for using Daytrip Gen 303")
+def choose_transportation():
+  transportation = choose_random_value(transportation_list)
+  user_is_happy = False
+  while user_is_happy == False:
+    user_input =input(f"Our way to get there is {transportation} ! You want take this? Please answer 'y or n'")
+    if user_input == "y":
+      print(f"Riiding in style with the {transportation} have a safe trip!")
+      user_is_happy=True
+    elif user_input== "n":
+      transportation= choose_random_value(transportation_list)
+
+chosen_transportaion=choose_transportation()  
+
+print(f"First of all we need a way to get around in {chosen_transportaion}. Stopping by to get some food at {chosen_restaurant}. Then we'll go to the {chosen_location}. Last but not least we'll {chosen_entertainment}.")
